@@ -3,5 +3,20 @@ local map = vim.keymap.set
 -- Telescope
 
 local builtin = require('telescope.builtin')
-map('n', '<leader>po', builtin.find_files, { desc = 'Telescope find files' })
-map('n', '<leader>pf', builtin.live_grep, { desc = 'Telescope find files' })
+map('n', '<leader>fo', builtin.find_files, { desc = 'Telescope find files' })
+map('n', '<leader>ff', builtin.live_grep, { desc = 'Telescope find files' })
+
+-- Harpoon
+
+map('n', '<leader>fa', require('harpoon.mark').add_file, { desc = 'Harpoon mark file' })
+map('n', '<leader>fv', require('harpoon.ui').toggle_quick_menu, { desc = 'Harpoon toggle quick menu' })
+
+map('n', '<leader>f1', function() require('harpoon.ui').nav_file(1) end, { desc = 'Harpoon quick switch to mark #1' })
+map('n', '<leader>f2', function() require('harpoon.ui').nav_file(2) end, { desc = 'Harpoon quick switch to mark #2' })
+map('n', '<leader>f3', function() require('harpoon.ui').nav_file(3) end, { desc = 'Harpoon quick switch to mark #3' })
+map('n', '<leader>f4', function() require('harpoon.ui').nav_file(4) end, { desc = 'Harpoon quick switch to mark #4' })
+map('n', '<leader>f5', function() require('harpoon.ui').nav_file(5) end, { desc = 'Harpoon quick switch to mark #5' })
+map('n', '<leader>f6', function() require('harpoon.ui').nav_file(6) end, { desc = 'Harpoon quick switch to mark #6' })
+map('n', '<leader>f7', function() require('harpoon.ui').nav_file(7) end, { desc = 'Harpoon quick switch to mark #7' })
+map('n', '<leader>f8', function() require('harpoon.ui').nav_file(8) end, { desc = 'Harpoon quick switch to mark #8' })
+map('n', '<leader>f9', function() require('harpoon.ui').nav_file(9) end, { desc = 'Harpoon quick switch to mark #9' })
