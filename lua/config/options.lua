@@ -37,10 +37,10 @@ vim.opt.pumheight = 10
 vim.opt.completeopt = { 'menuone', 'noselect' }
 
 -- Set search options
-vim.opt.ignorecase = true  -- Ignore case in searches
-vim.opt.smartcase = true   -- Don't ignore case if uppercase letters are used in search
-vim.opt.hlsearch = true    -- Highlight search results
-vim.opt.incsearch = true   -- Incremental search
+vim.opt.ignorecase = true -- Ignore case in searches
+vim.opt.smartcase = true  -- Don't ignore case if uppercase letters are used in search
+vim.opt.hlsearch = true   -- Highlight search results
+vim.opt.incsearch = true  -- Incremental search
 
 -- Display line and column numbers
 vim.opt.ruler = true
@@ -68,8 +68,16 @@ vim.opt.encoding = 'utf-8'
 
 -- Enable LSP diagnostics to show inline errors and warnings
 vim.diagnostic.config({
-  virtual_text = true,    -- Show inline error/warning messages
-  signs = true,          -- Show signs (e.g., error/warning icons in the gutter)
-  underline = true,      -- Underline errors and warnings
-  update_in_insert = false,  -- Don't update diagnostics in insert mode (optional)
+  virtual_text = true,
+  signs = {
+    active = true,
+    text = {
+      [vim.diagnostic.severity.ERROR] = "✘",
+      [vim.diagnostic.severity.WARN]  = "⚠",
+      [vim.diagnostic.severity.HINT]  = "ℹ",
+      [vim.diagnostic.severity.INFO]  = "💡",
+    },
+  },
+  underline = true,
+  update_in_insert = true,
 })
