@@ -73,4 +73,3 @@ vim.diagnostic.config({
   underline = true,      -- Underline errors and warnings
   update_in_insert = false,  -- Don't update diagnostics in insert mode (optional)
 })
-

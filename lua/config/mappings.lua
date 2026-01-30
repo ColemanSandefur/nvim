@@ -6,7 +6,7 @@ map('n', '<leader>fx', ':Explore<cr>', { remap = true })
 
 local builtin = require('telescope.builtin')
 map('n', '<leader>fo', builtin.find_files, { desc = 'Telescope find files' })
-map('n', '<leader>ff', builtin.live_grep, { desc = 'Telescope find files' })
+map('n', '<leader>ff', builtin.live_grep, { desc = 'Telescope live grep' })
 
 -- Harpoon
 
