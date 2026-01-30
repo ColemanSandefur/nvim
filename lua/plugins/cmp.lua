@@ -10,17 +10,18 @@ return {
             "hrsh7th/cmp-path",       -- Path source for nvim-cmp
             "hrsh7th/cmp-cmdline",    -- Cmdline source for nvim-cmp
             "saadparwaiz1/cmp_luasnip", -- LuaSnip source (for snippets)
-
+            -- Snippet engine
+            "L3MON4D3/LuaSnip",
         },
         config = function()
-            -- nvim-cmp setup
             local cmp = require("cmp")
+            local luasnip = require("luasnip")
+            require("luasnip.loaders.from_vscode").lazy_load()
 
             cmp.setup({
                 snippet = {
                     expand = function(args)
-                        -- Use LuaSnip for snippets (if you want to use snippets)
-                        vim.fn["vsnip#anonymous"](args.body)
+                        luasnip.lsp_expand(args.body)
                     end,
                 },
                 mapping = {

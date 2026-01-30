@@ -18,10 +18,19 @@ vim.opt.smartindent = true
 vim.opt.autoindent = true
 vim.opt.smarttab = true
 
--- Enable filetype plugin and indentation
-vim.opt.filetype = 'on'
-vim.opt.filetype.plugin = 'on'
-vim.opt.filetype.indent = 'on'
+-- Modern UI/UX improvements
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.updatetime = 200
+vim.opt.timeoutlen = 400
+vim.opt.termguicolors = true
+
+-- Enable persistent undo
+vim.opt.undofile = true
+
+-- Modern completion menu
+vim.opt.pumheight = 10
+vim.opt.completeopt = { 'menuone', 'noselect' }
 
 -- Set search options
 vim.opt.ignorecase = true  -- Ignore case in searches
@@ -60,10 +69,4 @@ vim.diagnostic.config({
   underline = true,      -- Underline errors and warnings
   update_in_insert = false,  -- Don't update diagnostics in insert mode (optional)
 })
-
--- Configure signs for diagnostics
-vim.fn.sign_define('DiagnosticSignError', { text = '✘', texthl = 'DiagnosticError' })
-vim.fn.sign_define('DiagnosticSignWarn', { text = '⚠', texthl = 'DiagnosticWarning' })
-vim.fn.sign_define('DiagnosticSignInfo', { text = 'ℹ', texthl = 'DiagnosticInfo' })
-vim.fn.sign_define('DiagnosticSignHint', { text = '💡', texthl = 'DiagnosticHint' })
 
