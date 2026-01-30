@@ -26,3 +26,18 @@ map('n', '<leader>9', function() require('harpoon.ui').nav_file(9) end, { desc =
 -- Mason
 
 map('n', '<leader>e', vim.diagnostic.open_float)
+
+-- LSP: Go to definition
+map('n', 'gd', function() vim.lsp.buf.definition() end, { desc = 'Go to definition' })
+-- LSP: Peek definition (Neovim 0.11+)
+map('n', 'gp', function() vim.lsp.buf.peek_definition() end, { desc = 'Peek definition' })
+-- LSP: Go back after definition
+map('n', 'gD', '<C-o>', { desc = 'Jump back from definition' })
+
+-- Comment.nvim: Comment/uncomment lines
+-- Normal mode: gcc, Visual mode: gc
+map('n', 'gcc', function() require('Comment.api').toggle.linewise.current() end, { desc = 'Toggle comment line' })
+map('v', 'gc', function() require('Comment.api').toggle.linewise(vim.fn.visualmode()) end, { desc = 'Toggle comment selection' })
+
+-- nvim-tree: Toggle file explorer
+map('n', '<leader>ft', ':NvimTreeToggle<CR>', { desc = 'Toggle file tree' })
