@@ -1,3 +1,7 @@
+-- Neovim Theme
+vim.cmd.colorscheme "catppuccin"
+-- vim.cmd.colorscheme "tokyonight"
+
 -- Enable line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true

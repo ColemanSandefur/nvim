@@ -12,37 +12,54 @@ return {
             "saadparwaiz1/cmp_luasnip", -- LuaSnip source (for snippets)
             -- Snippet engine
             "L3MON4D3/LuaSnip",
+            "onsails/lspkind.nvim", -- VS Code-like icons
+            "hrsh7th/cmp-nvim-lsp-signature-help", -- Signature help
         },
         config = function()
             local cmp = require("cmp")
+            local lspkind = require("lspkind")
             local luasnip = require("luasnip")
             require("luasnip.loaders.from_vscode").lazy_load()
 
             cmp.setup({
+                formatting = {
+                    format = lspkind.cmp_format({
+                        mode = "symbol_text",
+                        maxwidth = 50,
+                        ellipsis_char = '…',
+                    })
+                },
                 snippet = {
                     expand = function(args)
                         luasnip.lsp_expand(args.body)
                     end,
                 },
-                mapping = {
+                mapping = cmp.mapping.preset.insert({
                     -- Open the completion menu using Ctrl + Space
-                    ["<C-Space>"] = cmp.mapping.complete(),
+                    ['<C-Space>'] = cmp.mapping.complete(),
 
-                    -- Confirm auto complete using Tab
-                    ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+                    -- Confirm auto complete using Enter
+                    ['<CR>'] = cmp.mapping.confirm({ select = true }),
 
                     -- Navigate the suggestions
-                    ["<C-p>"] = cmp.mapping.select_prev_item(),
-                    ["<C-n>"] = cmp.mapping.select_next_item(),
-                    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-                    ["<C-u>"] = cmp.mapping.scroll_docs(4),
+                    ['<Tab>'] = cmp.mapping.select_next_item(),
+                    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+                    ['<C-d>'] = cmp.mapping.scroll_docs(4),
+                    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+                }),
+                sources = cmp.config.sources({
+                    { name = 'nvim_lsp' },
+                    { name = 'nvim_lsp_signature_help' },
+                    { name = 'luasnip' },
+                    { name = 'buffer' },
+                    { name = 'path' },
+                }),
+                window = {
+                    documentation = cmp.config.window.bordered(),
+                    completion = cmp.config.window.bordered(),
                 },
-                sources = {
-                    { name = "nvim_lsp" },
-                    { name = "buffer" },
-                    { name = "path" },
-                    { name = "cmdline" },
-                    { name = "luasnip" },  -- Optional, if using LuaSnip
+                experimental = {
+                    ghost_text = true,
                 },
             })
         end,
