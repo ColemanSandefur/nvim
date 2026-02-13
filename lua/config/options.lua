@@ -1,5 +1,5 @@
 -- Neovim Theme
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme("catppuccin")
 -- vim.cmd.colorscheme "tokyonight"
 
 -- Enable line numbers
@@ -14,8 +14,9 @@ vim.opt.wrap = false
 
 -- Use spaces instead of tabs, and set tab width to 4
 vim.opt.expandtab = true
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
 
 -- Automatically indent new lines
 vim.opt.smartindent = true
@@ -34,13 +35,13 @@ vim.opt.undofile = true
 
 -- Modern completion menu
 vim.opt.pumheight = 10
-vim.opt.completeopt = { 'menuone', 'noselect' }
+vim.opt.completeopt = { "menuone", "noselect" }
 
 -- Set search options
 vim.opt.ignorecase = true -- Ignore case in searches
-vim.opt.smartcase = true  -- Don't ignore case if uppercase letters are used in search
-vim.opt.hlsearch = true   -- Highlight search results
-vim.opt.incsearch = true  -- Incremental search
+vim.opt.smartcase = true -- Don't ignore case if uppercase letters are used in search
+vim.opt.hlsearch = true -- Highlight search results
+vim.opt.incsearch = true -- Incremental search
 
 -- Display line and column numbers
 vim.opt.ruler = true
@@ -52,7 +53,7 @@ vim.opt.showmatch = true
 vim.opt.cursorline = true
 
 -- Enable mouse support
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 
 -- Highlight current line with a different background color
 vim.opt.cursorline = true
@@ -61,23 +62,23 @@ vim.opt.cursorline = true
 -- vim.opt.statusline = '%l:%c'
 
 -- Set clipboard to use the system clipboard
-vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = "unnamedplus"
 
 -- Set default file encoding to UTF-8
-vim.opt.encoding = 'utf-8'
+vim.opt.encoding = "utf-8"
 
 -- Enable LSP diagnostics to show inline errors and warnings
 vim.diagnostic.config({
-  virtual_text = true,
-  signs = {
-    active = true,
-    text = {
-      [vim.diagnostic.severity.ERROR] = "✘",
-      [vim.diagnostic.severity.WARN]  = "⚠",
-      [vim.diagnostic.severity.HINT]  = "ℹ",
-      [vim.diagnostic.severity.INFO]  = "💡",
-    },
-  },
-  underline = true,
-  update_in_insert = true,
+	virtual_text = true,
+	signs = {
+		active = true,
+		text = {
+			[vim.diagnostic.severity.ERROR] = "✘",
+			[vim.diagnostic.severity.WARN] = "⚠",
+			[vim.diagnostic.severity.HINT] = "ℹ",
+			[vim.diagnostic.severity.INFO] = "💡",
+		},
+	},
+	underline = true,
+	update_in_insert = true,
 })
