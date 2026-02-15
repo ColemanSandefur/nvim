@@ -57,15 +57,6 @@ end, { desc = "Peek definition" })
 -- LSP: Go back after definition
 map("n", "gD", "<C-o>", { desc = "Jump back from definition" })
 
--- Comment.nvim: Comment/uncomment lines
--- Normal mode: gcc, Visual mode: gc
-map("n", "gcc", function()
-	require("Comment.api").toggle.linewise.current()
-end, { desc = "Toggle comment line" })
-map("v", "gc", function()
-	require("Comment.api").toggle.linewise(vim.fn.visualmode())
-end, { desc = "Toggle comment selection" })
-
 -- nvim-tree: Toggle file explorer
 map("n", "<leader>ft", ":NvimTreeToggle<CR>", { desc = "Toggle file tree" })
 
